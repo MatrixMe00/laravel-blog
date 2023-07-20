@@ -27,4 +27,4 @@ Route::get('/post/{post}', function ($post_name) {
     return view('post', [
         "post"=>$post
     ]);
-});
+})->where("post","[A-z0-9_/-]+");
