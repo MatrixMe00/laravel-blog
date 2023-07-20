@@ -1,0 +1,19 @@
+body{
+    background: ghostwhite;
+    color: black;
+    max-width: 720px;
+    margin: auto;
+}
+
+article{
+    margin: 1rem auto;
+    border-bottom: 1px solid grey;
+}
+
+article:first-child{
+    margin-top: 0.5rem;
+}
+
+article:last-child{
+    margin-bottom: 0.5rem;
+}
