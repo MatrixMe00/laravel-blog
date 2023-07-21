@@ -18,12 +18,12 @@ Route::get('/', function () {
 });
 
 Route::get('/post/{post}', function ($post_name) {
-    $path = __DIR__ ."/../resources/views/posts/{$post_name}.html";
-    if(!file_exists($path)){
+    if(!file_exists($path = __DIR__ ."/../resources/views/posts/{$post_name}.html")){
         abort(404);
     }
 
-    $post = file_get_contents($path);
+    $post = cache()->remember("post.{post}", now()->addWeek(), fn() => file_get_contents($path));
+
     return view('post', [
         "post"=>$post
     ]);
