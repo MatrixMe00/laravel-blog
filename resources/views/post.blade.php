@@ -3,11 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Single Blog Page</title>
+    <title><?= $post->title ?></title>
     <link rel="stylesheet" href="app.css">
 </head>
 <body>
-    <?= $post ?>
+    <article>
+        <h1><?= $post->title ?></h1>
+        <?= $post->body ?>
+    </article>    
 
     <a href="/">Go back</a>
 </body>

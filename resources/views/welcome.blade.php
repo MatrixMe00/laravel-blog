@@ -8,7 +8,10 @@
 </head>
 <body>
     <?php foreach($posts as $post) : ?>
-    <?= $post ?>
+        <article>
+            <h1><a href="<?= "post/{$post->url}" ?>"><?= $post->title ?></a></h1>
+            <p><?= $post->excerpt ?></p>
+        </article>
     <?php endforeach; ?>
 </body>
 </html>
