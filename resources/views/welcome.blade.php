@@ -7,11 +7,11 @@
     <link rel="stylesheet" href="app.css">
 </head>
 <body>
-    <?php foreach($posts as $post) : ?>
+    @foreach($posts as $post)
         <article>
-            <h1><a href="<?= "post/{$post->url}" ?>"><?= $post->title ?></a></h1>
-            <p><?= $post->excerpt ?></p>
+            <h1><a href="post/{{$post->url}}"> {{$post->title}} </a></h1>
+            <p> {{$post->excerpt}}</p>
         </article>
-    <?php endforeach; ?>
+    @endforeach
 </body>
 </html>
