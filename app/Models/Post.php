@@ -25,7 +25,18 @@ class Post
 
         return $posts->firstWhere("url", $post_name);
     }
-    
+
+    public static function findOrFail($post_name)
+    {
+        $post = static::find($post_name);
+
+        if(!$post){
+            throw new ModelNotFoundException();
+        }
+
+        return $post;
+    }
+
     public static function all(){
         $files = File::files(resource_path("views/posts/"));
         return collect($files)
