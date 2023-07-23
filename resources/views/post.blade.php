@@ -6,6 +6,7 @@
     <x-slot name="content">
         <article>
             <h1>{{ $post->title }}</h1>
+            <h5>Cat: <a href="#">{{$post->category->name}}</a></h5>
             {!! $post->body !!}
         </article>
 

@@ -16,4 +16,8 @@ class Post extends Model
         }
         return strtolower(str_replace(" ","-",$title_value));
     }
+
+    public function category(){
+        return $this->belongsTo(Category::class);
+    }
 }
