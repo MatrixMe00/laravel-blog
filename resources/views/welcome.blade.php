@@ -8,7 +8,7 @@
         <article>
             <h1><a href="post/{{$post->slug}}"> {{$post->title}} </a></h1>
             <h5>Cat: <a href="categories/{{$post->category->slug}}">{{$post->category->name}}</a></h5>
-            <p> {{$post->excerpt}}</p>
+            <p> {!!$post->excerpt!!}</p>
         </article>
         @endforeach
     </x-slot>
