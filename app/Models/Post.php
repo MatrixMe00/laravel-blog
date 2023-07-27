@@ -10,6 +10,8 @@ class Post extends Model
 {
     use HasFactory;
 
+    protected $with = ["category","author"];
+
     public static function createSlug($title_value){
         if(empty($title_value)){
             throw new Exception("Your title is empty");
