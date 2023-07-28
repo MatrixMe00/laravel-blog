@@ -4,6 +4,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 @vite("resources/css/app.css")
+<script src="{{asset('compressed_jquery.js')}}"></script>
 </head>
 <body style="font-family: Open Sans, sans-serif">
     <section class="px-6 py-8">
@@ -53,4 +54,15 @@
             </div>
         </footer>
     </section>
+
+    <script>
+        $("#categories").change(function(){
+            let url = "/categories/" + $(this).val()
+            if($(this).val() == ""){
+                url = "/categories/"
+            }
+
+            location.href = url
+        })
+    </script>
 </body>
