@@ -4,6 +4,7 @@ use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 use App\Models\Post;
 use App\Models\User;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,34 +17,9 @@ use App\Models\User;
 |
 */
 
-Route::get('/', function () {
-    $posts = Post::latest();
-
-    if(request("search")){
-        $posts
-            ->where("title","like","%".request("search")."%")
-            ->orWhere("body","like","%".request("search")."%");
-    }
-
-    return view('welcome', [
-        "posts" => $posts->get(),
-        "categories" => Category::all()
-    ]);
-})->name("home");
-
-Route::get('/post/{post:slug}', function (Post $post) {
-    return view('post', [
-        "post"=>$post
-    ]);
-});
-
-Route::get('/categories/{category:slug}', function (Category $category) {
-    return view('welcome', [
-        "posts"=>$category->posts,
-        "categories" => Category::all(),
-        "currentCategory" => $category->slug
-    ]);
-})->name("category");
+Route::get('/', [PostController::class, 'index'])->name("home");
+Route::get('/post/{post:slug}', [PostController::class, "show"]);
+Route::get('/categories/{category:slug}', [PostController::class, "category"])->name("category");
 
 Route::get('/author/posts/{author:username}', function (User $author) {
     return view('welcome', [

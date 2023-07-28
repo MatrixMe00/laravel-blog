@@ -1,10 +1,11 @@
 @props(["posts"])
 
+@if($posts->count())
+{{-- Show the number of results returned --}}
 @if(request("search"))
 <p class="text-center">{{count($posts)." were returned"}}</p>
 @endif
 
-@if($posts->count())
 <x-post-featured-card :post="$posts[0]" />
 
 @if($posts->count() > 1)
@@ -17,4 +18,6 @@
     @endforeach
 </div>
 @endif
+@else
+<p class="text-center p-10 border shadow">No Posts were returned</p>
 @endif
