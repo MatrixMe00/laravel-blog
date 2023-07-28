@@ -12,4 +12,8 @@ class Category extends Model
     public function posts(){
         return $this->hasMany(Post::class);
     }
+
+    public static function createCategories($max_categories){
+        return Category::factory($max_categories)->create();
+    }
 }
