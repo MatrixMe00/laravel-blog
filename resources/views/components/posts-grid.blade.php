@@ -1,4 +1,9 @@
 @props(["posts"])
+
+@if(request("search"))
+<p class="text-center">{{count($posts)." were returned"}}</p>
+@endif
+
 @if($posts->count())
 <x-post-featured-card :post="$posts[0]" />
 
