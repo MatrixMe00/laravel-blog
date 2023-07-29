@@ -22,7 +22,7 @@ Route::get('/post/{post:slug}', [PostController::class, "show"]);
 Route::get('/categories/{category:slug}', [PostController::class, "category"])->name("category");
 
 Route::get('/author/posts/{author:username}', function (User $author) {
-    return view('welcome', [
+    return view('posts.index', [
         "posts"=>$author->posts,
         "categories" => Category::all()
     ]);
