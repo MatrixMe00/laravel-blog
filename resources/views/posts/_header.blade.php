@@ -12,15 +12,7 @@
     </p>
 
     <div class="space-y-2 lg:space-y-0 lg:space-x-4 mt-8">
-        <!--  Category -->
-        <div class="relative flex lg:inline-flex items-center bg-gray-100 rounded-xl">
-            <x-dropdown>
-                <x-dropdown-item value="" :active="request()->routeIs('home')">All</x-dropdown-item>
-                @foreach($categories as $category)
-                <x-dropdown-item value="{{$category->slug}}" :active="isset($currentCategory) && $currentCategory == $category->slug">{{ucwords($category->name)}}</x-dropdown-item>
-                @endforeach
-            </x-dropdown>
-        </div>
+        <x-category-dropdown></x-category-dropdown>
 
         <!-- Search -->
         <div class="relative flex lg:inline-flex items-center bg-gray-100 rounded-xl px-3 py-2">

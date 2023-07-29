@@ -57,9 +57,9 @@
 
     <script>
         $("#categories").change(function(){
-            let url = "/categories/" + $(this).val()
+            let url = "/?category=" + $(this).val()
             if($(this).val() == ""){
-                url = "/categories/"
+                url = "/"
             }
 
             location.href = url
