@@ -57,12 +57,14 @@
 
     <script>
         $("#categories").change(function(){
+            const data_query = $(this).children("option:selected").attr("data-query");
             let url = "/?category=" + $(this).val()
             if($(this).val() == ""){
                 url = "/"
             }
 
-            location.href = url
+            url += "&" + data_query;
+            location.href = url;
         })
     </script>
 </body>
