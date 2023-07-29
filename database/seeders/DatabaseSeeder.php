@@ -25,10 +25,12 @@ class DatabaseSeeder extends Seeder
             $user = User::factory()->create();
             $posts = rand(1, $max_posts_per_user);
 
-            Post::factory($posts)->create([
-                "user_id" => $user->id,
-                "category_id" => $categories[rand(0, 9)]->id
-            ]);
+            for($j=1; $j <= $posts; $j++){
+                Post::factory()->create([
+                    "user_id" => $user->id,
+                    "category_id" => $categories[rand(0, 9)]->id
+                ]);
+            }
         }
 
         /*$user = User::factory()->create([
