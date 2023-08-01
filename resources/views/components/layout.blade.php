@@ -55,6 +55,8 @@
         </footer>
     </section>
 
+    <x-flash></x-flash>
+
     <script>
         $("#categories").change(function(){
             const data_query = $(this).children("option:selected").attr("data-query");
@@ -65,6 +67,14 @@
 
             url += "&" + data_query;
             location.href = url;
+        })
+
+        $(document).ready(function(){
+            if($("#success")){
+                setTimeout(() => {
+                    $("#success").remove();
+                }, 4000);
+            }
         })
     </script>
 </body>
